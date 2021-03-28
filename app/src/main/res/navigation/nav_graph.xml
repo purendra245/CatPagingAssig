@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@+id/cat_dest">
+
+    <fragment
+        android:id="@+id/cat_dest"
+        android:name="com.catpaging.ui.fragment.CatFragment"
+        tools:layout="@layout/fragment_cat" >
+        <action
+            android:id="@+id/action_cat_dest_to_cat_img"
+            app:destination="@id/cat_img" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/cat_img"
+        android:name="com.catpaging.ui.fragment.CatImageFragment"
+        tools:layout="@layout/activity_image" />
+
+</navigation>

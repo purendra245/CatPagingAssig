@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_size">20sp</dimen>
+    <dimen name="margin_detail_page">10dp</dimen>
+    <dimen name="detail_corner_radius">6dp</dimen>
+    <dimen name="detail_card_eleve">4dp</dimen>
+</resources>
