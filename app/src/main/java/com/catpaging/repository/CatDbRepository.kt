@@ -30,7 +30,7 @@ class CatDbRepository @Inject constructor(
 
     override fun getCats(): Flow<PagingData<CatsResponse>> {
         val pagingConfig: PagingConfig = getDefaultPageConfig()
-        val pagingSourceFactory = { database.catDao().getCatData() }
+        val pagingSourceFactory = { database.getCatDao().getCatData() }
         return Pager(
             config = pagingConfig,
             pagingSourceFactory = pagingSourceFactory,

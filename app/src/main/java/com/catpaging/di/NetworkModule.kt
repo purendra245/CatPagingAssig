@@ -1,23 +1,18 @@
 package com.catpaging.di
 
-import android.app.Application
 import com.catpaging.BuildConfig
 import com.catpaging.constants.AppConstants
 import com.catpaging.datasource.NetworkDataSource
 import com.catpaging.network.CatRetrofit
 import com.catpaging.network.CatRetrofitService
-import com.example.mypaging.dataSource.network.NetworkDataSourceImpl
-import com.example.mypaging.network.CatRetrofitServiceImpl
-import com.example.mypaging.utils.GlideApp
-import com.example.mypaging.utils.GlideRequests
+import com.catpaging.datasource.NetworkDataSourceImpl
+import com.catpaging.network.CatRetrofitServiceImpl
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

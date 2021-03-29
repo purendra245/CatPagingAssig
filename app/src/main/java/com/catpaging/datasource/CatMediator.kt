@@ -41,7 +41,7 @@ class CatMediator (private val networkDataSource: NetworkDataSource,
                 // clear all tables in the database
                 if (loadType == LoadType.REFRESH) {
                     database.getRepoDao().clearRemoteKeys()
-                    database.catDao().clearAllCats()
+                    database.getCatDao().clearAllCats()
                 }
                 val prevKey = if (page == DEFAULT_PAGE_INDEX) null else page - 1
                 val nextKey = if (isEndOfList) null else page + 1
@@ -49,7 +49,7 @@ class CatMediator (private val networkDataSource: NetworkDataSource,
                     RemoteKeys(repoId = it.id, prevKey = prevKey, nextKey = nextKey)
                 }
                 database.getRepoDao().insertAll(keys)
-                database.catDao().insertAll(response)
+                database.getCatDao().insertAll(response)
             }
             return MediatorResult.Success(endOfPaginationReached = isEndOfList)
         } catch (exception: IOException) {

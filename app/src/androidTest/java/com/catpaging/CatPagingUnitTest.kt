@@ -10,14 +10,13 @@ import androidx.paging.ExperimentalPagingApi
 import com.bumptech.glide.GlideContext
 import com.bumptech.glide.RequestManager
 import com.bumptech.glide.module.AppGlideModule
+import com.catpaging.db.CatDatabase
 import com.catpaging.di.NetworkModule
 import com.catpaging.model.CatsResponse
 import com.catpaging.repository.CatDbRepository
 import com.catpaging.ui.adapter.CatListAdapter
 import com.catpaging.ui.viewmodel.CatsViewModel
-import com.example.mypaging.di.InteractorsModule
 import com.example.mypaging.utils.GlideApp
-import com.example.mypaging.utils.GlideRequests
 import dagger.hilt.EntryPoint
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.testing.HiltAndroidRule
@@ -36,6 +35,7 @@ import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Rule
 import javax.inject.Inject
+import javax.inject.Named
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -46,10 +46,19 @@ import javax.inject.Inject
 @HiltAndroidTest
 class CatUnitTest {
 
-
+    @get:Rule
+    var hiltRule = HiltAndroidRule(this)
 
     @ExperimentalPagingApi
+    @Named("test_db")
+    @Inject lateinit var catDatabase: CatDatabase
+
+    @ExperimentalPagingApi
+    @Named("test_repo")
     @Inject lateinit var catDbRepository: CatDbRepository
+
+
+
 
     @ExperimentalPagingApi
     @Inject
@@ -57,10 +66,10 @@ class CatUnitTest {
 
     @ExperimentalCoroutinesApi
     private lateinit var viewModel: CatsViewModel
-    private val catFactory =CatFactory ()
 
 
 
+    @ExperimentalCoroutinesApi
     @ExperimentalPagingApi
     @InternalCoroutinesApi
     @Test
@@ -71,12 +80,12 @@ class CatUnitTest {
 
         val job = launch {
             viewModel.fetchCatData().distinctUntilChanged().collectLatest {
+                println(it)
                     adapter.submitData(it)
+
             }
         }
-
-        assertTrue(adapter.itemCount>0)
-
+        assertFalse(adapter.itemCount>0)
         job.cancel()
 
 
@@ -88,6 +97,7 @@ class CatUnitTest {
     @ExperimentalPagingApi
     @Before
     fun init() {
+        hiltRule.inject()
         viewModel = CatsViewModel(catDbRepository)
     }
 

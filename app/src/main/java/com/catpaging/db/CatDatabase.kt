@@ -10,7 +10,7 @@ import com.example.mypaging.db.dao.RemoteKeysDao
 @Database(version = 1,entities = [CatsResponse::class, RemoteKeys::class ], exportSchema = false)
 abstract class CatDatabase: RoomDatabase() {
 
-    abstract fun catDao(): CatDao
+    abstract fun getCatDao(): CatDao
     abstract fun getRepoDao(): RemoteKeysDao
 
     companion object{

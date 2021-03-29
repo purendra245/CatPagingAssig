@@ -1,4 +1,4 @@
-package com.example.mypaging.network
+package com.catpaging.network
 
 import com.catpaging.model.CatsResponse
 import com.catpaging.network.CatRetrofit

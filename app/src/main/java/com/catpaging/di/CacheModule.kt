@@ -30,7 +30,7 @@ object CacheModule {
     @Singleton
     @Provides
     fun provideCatDAO(catDatabase: CatDatabase): CatDao {
-        return catDatabase.catDao()
+        return catDatabase.getCatDao()
     }
 
 

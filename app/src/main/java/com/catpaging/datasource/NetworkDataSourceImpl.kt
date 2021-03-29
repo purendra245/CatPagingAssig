@@ -1,4 +1,4 @@
-package com.example.mypaging.dataSource.network
+package com.catpaging.datasource
 
 import com.catpaging.datasource.NetworkDataSource
 import com.catpaging.model.CatsResponse

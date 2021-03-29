@@ -2,19 +2,21 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/img_card"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    app:cardCornerRadius="6dp"
-    app:cardElevation="6dp">
+    android:layout_margin="@dimen/list_card_margin"
+    app:cardCornerRadius="@dimen/list_card_corner_radius"
+    app:cardElevation="@dimen/list_card_eleve">
 
     <ImageView
         android:id="@+id/ivCatMain"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="@dimen/img_width"
+        android:layout_height="@dimen/img_height"
         android:maxHeight="300dp"
         android:scaleType="centerCrop"
         android:transitionName="cat_image"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+        tools:srcCompat="@tools:sample/backgrounds/scenic"
+        android:contentDescription="@string/pinch_zoom" />
 
 </androidx.cardview.widget.CardView>

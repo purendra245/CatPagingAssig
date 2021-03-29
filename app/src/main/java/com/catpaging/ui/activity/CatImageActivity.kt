@@ -16,6 +16,7 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
+import com.catpaging.constants.IntentConstants
 
 
 @AndroidEntryPoint
@@ -31,8 +32,8 @@ class CatImageActivity : AppCompatActivity() {
         setContentView(R.layout.activity_image)
         supportPostponeEnterTransition()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        if (intent.hasExtra("url")) {
-            intent.getStringExtra("url")?.let { loadInto(it) }
+        if (intent.hasExtra(IntentConstants.CAT_EXTRA_URL)) {
+            intent.getStringExtra(IntentConstants.CAT_EXTRA_URL)?.let { loadInto(it) }
         }
 
 

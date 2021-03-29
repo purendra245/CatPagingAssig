@@ -19,7 +19,7 @@ package com.catpaging
 import com.catpaging.model.CatsResponse
 import java.util.concurrent.atomic.AtomicInteger
 
-class CatFactory {
+open class CatFactory {
     private val counter = AtomicInteger(0)
     fun createCatResponse(): CatsResponse {
         val id = counter.incrementAndGet()

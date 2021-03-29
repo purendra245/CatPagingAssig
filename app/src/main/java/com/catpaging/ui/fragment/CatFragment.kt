@@ -22,11 +22,7 @@ import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.launch
 import android.content.Intent
 import androidx.core.app.ActivityOptionsCompat
-
-
-
-
-
+import com.catpaging.constants.IntentConstants
 
 
 @ExperimentalPagingApi
@@ -74,7 +70,7 @@ class CatFragment : Fragment(R.layout.fragment_cat) , CatListAdapter.OnCellClick
 
         activity?.let{
             val intent = Intent (it, CatImageActivity::class.java)
-            intent.putExtra("url",image.url)
+            intent.putExtra(IntentConstants.CAT_EXTRA_URL,image.url)
             val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
                 requireActivity(),
                 view, "cat_image"
